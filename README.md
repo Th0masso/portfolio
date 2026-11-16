@@ -62,7 +62,15 @@ Voir [`.env.example`](.env.example).
 
 ## Déploiement
 
-Prêt pour Vercel. Relier le repo, domaine `thomas-hercule.fr`, variables d’env si Resend.
+Guide complet : [`docs/superpowers/specs/2026-11-16-go-live-design.md`](docs/superpowers/specs/2026-11-16-go-live-design.md).
+
+1. Repo : https://github.com/Th0masso/portfolio.git (`main`).
+2. [Vercel](https://vercel.com) → Import du repo → Next.js, **aucune** variable d’env (mailto).
+3. Vercel → Domains : `thomas-hercule.fr` + `www` (redirige vers apex).
+4. OVH → Zone DNS : records **A** / **CNAME** indiqués par Vercel (ne pas changer les nameservers ; ne pas toucher aux MX).
+5. Vérifier HTTPS, pages, formulaire mailto.
+
+Resend plus tard : `RESEND_API_KEY` (+ `CONTACT_TO` / `CONTACT_FROM`) dans Vercel.
 
 ## Contenu
 
