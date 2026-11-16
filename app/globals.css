@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+:root {
+  --paper: #f4f1ea;
+  --ink: #0b2548;
+  --accent: #c1121f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-instrument);
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: clip;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.25rem;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+button:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.lenis-enabled {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
